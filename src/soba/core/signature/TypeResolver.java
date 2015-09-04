@@ -1,7 +1,7 @@
 package soba.core.signature;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.objectweb.asm.signature.SignatureReader;
 
@@ -24,7 +24,7 @@ public class TypeResolver {
 			return null;
 		}
 		if (types == null) {
-			types = new HashMap<>(4096);
+			types = new ConcurrentHashMap<String, String>(4096);
 		}
 		if (types.containsKey(typeDesc)) {
 			return types.get(typeDesc);
