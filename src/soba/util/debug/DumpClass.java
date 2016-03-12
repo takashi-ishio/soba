@@ -79,7 +79,9 @@ public class DumpClass {
 		}
 		
 		JavaProgram program = new JavaProgram((IClassList[]) files.toArray(new IClassList[files.size()]));
-		program.getClasses().forEach(c -> processClass(c));
+		for (ClassInfo c: program.getClasses()) {
+			processClass(c);
+		}
 		
 		System.err.println("FINISHED: " +  timer.getTotaltime() + " ms");
 		System.err.println("#Classes: " +  classCount);

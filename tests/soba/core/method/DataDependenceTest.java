@@ -158,9 +158,13 @@ public class DataDependenceTest {
 	}
 	
 	private boolean containsEdge(List<DataFlowEdge> edges, int from, int to) {
-		return edges.stream().anyMatch(
-				e -> e.getSourceInstruction() == from && 
-					 e.getDestinationInstruction() == to);
+		for (DataFlowEdge e: edges) {
+			if (e.getSourceInstruction() == from 
+					&& e.getDestinationInstruction() == to) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	private boolean containsEdgeAt(List<DataFlowEdge> edges, int from, int to, int pos) {

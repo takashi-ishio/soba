@@ -111,9 +111,13 @@ public class JavaProgram {
 	 * @return a list of library classes.
 	 */
 	public List<ClassInfo> getLibraryClasses() {
-		return classes.values().stream()
-				.filter(c -> c.isLibrary())
-				.collect(Collectors.toList());
+		List<ClassInfo> libs = new ArrayList<>();
+		for (ClassInfo c: classes.values()) {
+			if (c.isLibrary()) {
+				libs.add(c);
+			}
+		}
+		return libs;
 	}
 	
 	/**

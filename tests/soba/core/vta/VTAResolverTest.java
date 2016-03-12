@@ -3,7 +3,9 @@ package soba.core.vta;
 import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.junit.BeforeClass;
@@ -51,7 +53,11 @@ public class VTAResolverTest implements ExampleProgram {
 	}
 	
 	private void checkClasses(MethodInfo[] resolved, String... classNames) {
-		assertThat(Arrays.stream(resolved).map(m -> m.getClassName()).collect(Collectors.toList()), containsInAnyOrder(classNames));
+		List<String> classes = new ArrayList<>();
+		for (MethodInfo m: resolved) {
+			classes.add(m.getClassName());
+		}
+		assertThat(classes, containsInAnyOrder(classNames));
 	}
 	
 	@Test

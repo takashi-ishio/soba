@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -209,7 +210,11 @@ public class ClassHierarchyTest implements ExampleProgram {
 	}
 	
 	private void checkClasses(MethodInfo[] resolved, String... classNames) {
-		assertThat(Arrays.stream(resolved).map(m -> m.getClassName()).collect(Collectors.toList()), containsInAnyOrder(classNames));
+		List<String> classes = new ArrayList<>();
+		for (MethodInfo m: resolved) {
+			classes.add(m.getClassName());
+		}
+		assertThat(classes, containsInAnyOrder(classNames));
 	}
 	
 	@Test

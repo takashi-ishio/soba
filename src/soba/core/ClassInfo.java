@@ -13,6 +13,7 @@ import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.commons.JSRInlinerAdapter;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldNode;
+import org.objectweb.asm.tree.MethodNode;
 
 /**
  * This class represents a java class.
@@ -98,7 +99,9 @@ public class ClassInfo {
 
 		this.md5hash = MD5.getMD5(bytes);
 
-		classNode.methods.forEach(m -> methods.add(new MethodInfo(this, m)));
+		for (MethodNode m: classNode.methods) {
+			methods.add(new MethodInfo(this, m));
+		}
 		
 		for (int i=0; i<classNode.fields.size(); ++i) {
 			fields.add(new FieldInfo(this, (FieldNode)classNode.fields.get(i)));
