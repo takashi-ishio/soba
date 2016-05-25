@@ -1,6 +1,5 @@
 package soba.core;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,6 +13,8 @@ import org.objectweb.asm.commons.JSRInlinerAdapter;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldNode;
 import org.objectweb.asm.tree.MethodNode;
+
+import soba.util.files.FileUtil;
 
 /**
  * This class represents a java class.
@@ -57,7 +58,7 @@ public class ClassInfo {
 	 */
 	public ClassInfo(String fileName, InputStream binaryStream) throws IOException {
 		this.fileName = fileName; 
-		byte[] bytes = readToEnd(binaryStream);
+		byte[] bytes = FileUtil.readFully(binaryStream);
 		ClassReader cr1;
 		try {
 			cr1 = new ClassReader(bytes) {
@@ -113,15 +114,6 @@ public class ClassInfo {
 		}
 	}
 
-	private static byte[] readToEnd(InputStream stream) throws IOException {
-		byte[] buf = new byte[4096];
-		ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-		int n;
-		while ((n = stream.read(buf, 0, buf.length)) > 0) {
-			buffer.write(buf, 0, n);
-		}
-		return buffer.toByteArray();
-	}
 
 	public static ClassInfo createLibraryClass(String fileName, InputStream binaryStream) throws IOException {
 		ClassInfo c = new ClassInfo(fileName, binaryStream);
