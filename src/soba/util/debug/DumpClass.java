@@ -240,14 +240,16 @@ public class DumpClass {
 			int consumeStack = info.getOperandCount(i);
 			int maxStack = f.getStackSize();
 			for (int s=0; s<consumeStack; ++s) {
-				FastSourceValue source = (FastSourceValue)f.getStack(maxStack-1-s);
+				FastSourceValue source = (FastSourceValue)f.getStack(maxStack-consumeStack+s);
 				for (int pos: source.getInstructions()) {
 					if (enableOutput) {
 						System.out.print("    ");
 						System.out.print(i);
-						System.out.print(" [OPERAND");
+						System.out.print(" [OPERAND] <");
 						System.out.print(s);
-						System.out.print("] ");
+						System.out.print("/");
+						System.out.print(consumeStack);
+						System.out.print("> ");
 						System.out.print(pos);
 						System.out.print(": ");
 						if (pos >= 0) {
