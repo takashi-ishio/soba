@@ -1,8 +1,9 @@
 package soba.util;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class IntPairSetTest {
@@ -59,7 +60,7 @@ public class IntPairSetTest {
 						assertThat(visited14, is(false));
 						visited14 = true;
 					} else {
-						fail();
+						Assert.fail();
 					}
 					break;
 				case 3:
@@ -73,7 +74,7 @@ public class IntPairSetTest {
 					visited41 = true;
 					break;
 				default:
-					fail();
+					Assert.fail();
 				}
 				return true;
 			}

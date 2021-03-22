@@ -1,12 +1,11 @@
 package soba.core.method.asm;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
 //import org.junit.Assert;
 import org.junit.Test;
 
-import soba.core.method.asm.FastSourceValue;
 import soba.util.UtilForAssertThat;
 
 public class FastSourceValueTest {

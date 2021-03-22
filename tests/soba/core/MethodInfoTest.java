@@ -1,14 +1,11 @@
 package soba.core;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import soba.core.ClassInfo;
-import soba.core.JavaProgram;
-import soba.core.MethodInfo;
 import soba.util.UtilForAssertThat;
 import soba.util.graph.DirectedGraph;
 

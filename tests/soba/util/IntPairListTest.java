@@ -1,8 +1,9 @@
 package soba.util;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 
@@ -113,17 +114,17 @@ public class IntPairListTest {
 		list.freeze();
 		try {
 			list.add(3, 4);
-			fail();
+			Assert.fail();
 		} catch (IntPairList.FrozenListException e) {
 		}
 		try {
 			list.setFirstValue(0, 1);
-			fail();
+			Assert.fail();
 		} catch (IntPairList.FrozenListException e) {
 		}
 		try {
 			list.addAll(list);
-			fail();
+			Assert.fail();
 		} catch (IntPairList.FrozenListException e) {
 		}
 	}
@@ -134,22 +135,22 @@ public class IntPairListTest {
 		list.add(1, 2);
 		try {
 			list.getFirstValue(-1);
-			fail();
+			Assert.fail();
 		} catch (ArrayIndexOutOfBoundsException e) {
 		}
 		try {
 			list.getFirstValue(1);
-			fail();
+			Assert.fail();
 		} catch (ArrayIndexOutOfBoundsException e) {
 		}
 		try {
 			list.getSecondValue(-1);
-			fail();
+			Assert.fail();
 		} catch (ArrayIndexOutOfBoundsException e) {
 		}
 		try {
 			list.getSecondValue(1);
-			fail();
+			Assert.fail();
 		} catch (ArrayIndexOutOfBoundsException e) {
 		}
 	}
@@ -171,7 +172,7 @@ public class IntPairListTest {
 					assertThat(elem1, is(3));
 					assertThat(elem2, is(4));
 				} else {
-					fail();
+					Assert.fail();
 				}
 				times++;
 				return times == 1;

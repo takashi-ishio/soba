@@ -1,12 +1,14 @@
 package soba.util.graph;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import soba.util.IntPairProc;
+
 
 
 public class SingleRootDirectedGraphTest {
@@ -58,7 +60,7 @@ public class SingleRootDirectedGraphTest {
 					first = false;
 					return false;
 				} else {
-					fail();
+					Assert.fail();
 					return false;
 				}
 			}
@@ -72,7 +74,7 @@ public class SingleRootDirectedGraphTest {
 						firstFromRoot = false;
 						return false;
 					} else {
-						fail();
+						Assert.fail();
 						return false;
 					}
 				} else {

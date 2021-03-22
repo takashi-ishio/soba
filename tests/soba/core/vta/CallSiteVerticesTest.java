@@ -1,6 +1,6 @@
 package soba.core.vta;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
 import org.junit.BeforeClass;
@@ -11,7 +11,6 @@ import soba.core.JavaProgram;
 import soba.core.JavaProgramTest;
 import soba.core.MethodInfo;
 import soba.core.method.CallSite;
-import soba.core.vta.CallSiteVertices;
 
 public class CallSiteVerticesTest {
 

@@ -2,7 +2,7 @@ package soba.core.method;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
 import org.junit.BeforeClass;
@@ -11,8 +11,6 @@ import org.junit.Test;
 import soba.core.JavaProgram;
 import soba.core.JavaProgramTest;
 import soba.core.MethodInfo;
-import soba.core.method.DataDependence;
-import soba.core.method.DataFlowEdge;
 import soba.util.UtilForAssertThat;
 import soba.util.graph.DirectedGraph;
 

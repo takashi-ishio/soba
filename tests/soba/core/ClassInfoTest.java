@@ -1,6 +1,6 @@
 package soba.core;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
 import java.io.File;
@@ -9,7 +9,6 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import soba.core.ClassInfo;
 import soba.testdata.TestUtil;
 
 public class ClassInfoTest implements ExampleProgram {

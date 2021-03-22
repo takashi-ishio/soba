@@ -1,6 +1,6 @@
 package soba.core.method;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
 import org.junit.After;
@@ -15,7 +15,6 @@ import soba.core.ClassInfo;
 import soba.core.JavaProgram;
 import soba.core.JavaProgramTest;
 import soba.core.MethodInfo;
-import soba.core.method.LocalVariables;
 
 public class LocalVariablesTest {
 

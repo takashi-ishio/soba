@@ -2,9 +2,10 @@ package soba.util;
 
 import java.util.EmptyStackException;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 
@@ -31,12 +32,12 @@ public class IntStackTest {
 		assertThat(stack.isEmpty(), is(true));
 		try {
 			stack.pop();
-			fail();
+			Assert.fail();
 		} catch (EmptyStackException e) {
 		}
 		try {
 			stack.peek();
-			fail();
+			Assert.fail();
 		} catch (EmptyStackException e) {
 		}
 		

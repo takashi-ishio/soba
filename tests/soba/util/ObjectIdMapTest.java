@@ -1,9 +1,10 @@
 package soba.util;
 
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class ObjectIdMapTest {
@@ -48,7 +49,7 @@ public class ObjectIdMapTest {
 		try {
 			idMap.add("abc"); // ignored already registerd item
 			idMap.add("xyz"); // throws an exception
-			fail();
+			Assert.fail();
 		} catch (ObjectIdMap.FrozenMapException e) {
 		}
 		assertThat(idMap.getId("ab"), is(1));

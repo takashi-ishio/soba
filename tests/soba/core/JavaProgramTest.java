@@ -5,7 +5,7 @@ import java.io.File;
 import soba.testdata.TestUtil;
 import soba.util.files.Directory;
 import soba.util.files.IClassList;
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
 import org.junit.BeforeClass;

@@ -1,6 +1,6 @@
 package soba.util.files;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assume.*;
 

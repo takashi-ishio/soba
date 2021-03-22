@@ -1,6 +1,6 @@
 package soba.util.graph;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 import gnu.trove.list.array.TIntArrayList;
 
