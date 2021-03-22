@@ -1,4 +1,4 @@
-package soba.testdata;
+package soba.util;
 
 import java.io.File;
 

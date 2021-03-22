@@ -18,7 +18,7 @@ import org.junit.Test;
 
 import soba.core.ClassHierarchy.FrozenHierarchyException;
 import soba.core.method.FieldAccess;
-import soba.testdata.TestUtil;
+import soba.util.TestUtil;
 
 public class ClassHierarchyTest implements ExampleProgram {
 

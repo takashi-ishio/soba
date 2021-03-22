@@ -9,7 +9,7 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import soba.testdata.TestUtil;
+import soba.util.TestUtil;
 
 public class ClassInfoTest implements ExampleProgram {
 

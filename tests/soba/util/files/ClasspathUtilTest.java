@@ -10,6 +10,7 @@ import java.util.List;
 import org.junit.Test;
 
 import soba.core.ClassInfo;
+import soba.util.TestUtil;
 
 public class ClasspathUtilTest {
 
@@ -32,25 +33,26 @@ public class ClasspathUtilTest {
 	@Test
 	public void testGetClassList() {
 		
-		String[] fileArray = new String[]{"target/classes/soba/testdata"};
+		String path = TestUtil.getTestFile("soba/testdata").getPath();
+		String[] fileArray = new String[]{path};
 		IClassList[] results1 = ClasspathUtil.getClassList(fileArray);
 		assertThat(results1, is(arrayWithSize(1)));
 		IClassList[] results2 = ClasspathUtil.getClassList(fileArray, "");
 		assertThat(results2, is(arrayWithSize(1)));
 		
 		List<String> fileList = new ArrayList<>();
-		fileList.add("bin/soba/testdata");
+		fileList.add(path);
 		IClassList[] results3 = ClasspathUtil.getClassList(fileList);
 		assertThat(results3, is(arrayWithSize(1)));
 		IClassList[] results4 = ClasspathUtil.getClassList(fileList, null);
 		assertThat(results4, is(arrayWithSize(1)));
 		
-		String[] classFile = new String[]{"target/classes/soba/testdata/DefUseTestData.class"};
+		String[] classFile = new String[]{TestUtil.getTestFile("soba/testdata/DefUseTestData.class").getPath()};
 		IClassList[] results6 = ClasspathUtil.getClassList(classFile);
 		assertThat(results6, is(arrayWithSize(1)));
 		
-		String[] appFiles = new String[]{"target/classes/soba/testdata/DefUseTestData.class"};
-		String[] libFiles = new String[]{"target/classes/soba/testdata"};
+		String[] appFiles = new String[]{TestUtil.getTestFile("soba/testdata/DefUseTestData.class").getPath()};
+		String[] libFiles = new String[]{TestUtil.getTestFile("soba/testdata").getPath()};
 		IClassList[] results7 = ClasspathUtil.getClassList(appFiles, libFiles);
 		assertThat(results7, is(arrayWithSize(2)));
 		assertThat(results7[1].getLabel(), is(ClassInfo.LIBRARY_LABEL));

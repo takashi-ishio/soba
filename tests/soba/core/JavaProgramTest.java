@@ -2,7 +2,7 @@ package soba.core;
 
 import java.io.File;
 
-import soba.testdata.TestUtil;
+import soba.util.TestUtil;
 import soba.util.files.Directory;
 import soba.util.files.IClassList;
 import static org.hamcrest.MatcherAssert.*;
