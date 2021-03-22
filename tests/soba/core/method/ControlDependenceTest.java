@@ -2,10 +2,9 @@ package soba.core.method;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
-import soba.core.method.ControlDependence;
 import soba.util.IntPairList;
 import soba.util.UtilForAssertThat;
 import soba.util.graph.DirectedGraph;

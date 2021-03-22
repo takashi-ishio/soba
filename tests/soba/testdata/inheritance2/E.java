@@ -93,6 +93,7 @@ public class E {
 		l.getC().x(0);  // There are no implementation of getC()
 	}
 
+	@SuppressWarnings("unused")
 	public void testDynamicBinding7(boolean b) {
 		List<String> list;
 		if (b) {

@@ -1,6 +1,6 @@
 package soba.core;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
 import org.junit.After;
@@ -9,9 +9,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import soba.core.ClassInfo;
-import soba.core.FieldInfo;
-import soba.core.JavaProgram;
 
 public class FieldInfoTest {
 
