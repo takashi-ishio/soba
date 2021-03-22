@@ -2,7 +2,7 @@ package soba.core;
 
 import java.io.File;
 
-import soba.core.JavaProgram;
+import soba.testdata.TestUtil;
 import soba.util.files.Directory;
 import soba.util.files.IClassList;
 import static org.junit.Assert.*;
@@ -16,7 +16,8 @@ public class JavaProgramTest implements ExampleProgram {
 	private static JavaProgram program;
 	
 	public static JavaProgram readExampleProgram() {
-		Directory dir = new Directory(new File("bin/soba/testdata/"));
+		File d = TestUtil.getTestFile("soba/testdata/");
+		Directory dir = new Directory(d);
 		JavaProgram program = new JavaProgram(new IClassList[] {dir});
 		return program;
 	}

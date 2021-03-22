@@ -1,27 +1,24 @@
 package soba.core;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import soba.core.ClassHierarchy;
-import soba.core.ClassInfo;
-import soba.core.MethodInfo;
 import soba.core.ClassHierarchy.FrozenHierarchyException;
 import soba.core.method.FieldAccess;
+import soba.testdata.TestUtil;
 
 public class ClassHierarchyTest implements ExampleProgram {
 
@@ -48,15 +45,15 @@ public class ClassHierarchyTest implements ExampleProgram {
 	
 	@BeforeClass
 	public static void setUpClassInfo() throws IOException {
-		c = new ClassInfo("C.class", new FileInputStream("bin/" + CLASS_C + ".class"));
-		d = new ClassInfo("D.class", new FileInputStream("bin/" + CLASS_D + ".class"));
-		e = new ClassInfo("E.class", new FileInputStream("bin/" + CLASS_E + ".class"));
-		f = new ClassInfo("F.class", new FileInputStream("bin/" + CLASS_F + ".class"));
-		g = new ClassInfo("G.class", new FileInputStream("bin/" + CLASS_G + ".class"));
-		h = new ClassInfo("H.class", new FileInputStream("bin/" + CLASS_H + ".class"));
-		i = new ClassInfo("I.class", new FileInputStream("bin/" + CLASS_I + ".class"));
-		j = new ClassInfo("I.class", new FileInputStream("bin/" + CLASS_J + ".class"));
-		k = new ClassInfo("I.class", new FileInputStream("bin/" + CLASS_K + ".class"));
+		c = new ClassInfo("C.class", new FileInputStream(TestUtil.getTestFile(CLASS_C + ".class")));
+		d = new ClassInfo("D.class", new FileInputStream(TestUtil.getTestFile(CLASS_D + ".class")));
+		e = new ClassInfo("E.class", new FileInputStream(TestUtil.getTestFile(CLASS_E + ".class")));
+		f = new ClassInfo("F.class", new FileInputStream(TestUtil.getTestFile(CLASS_F + ".class")));
+		g = new ClassInfo("G.class", new FileInputStream(TestUtil.getTestFile(CLASS_G + ".class")));
+		h = new ClassInfo("H.class", new FileInputStream(TestUtil.getTestFile(CLASS_H + ".class")));
+		i = new ClassInfo("I.class", new FileInputStream(TestUtil.getTestFile(CLASS_I + ".class")));
+		j = new ClassInfo("J.class", new FileInputStream(TestUtil.getTestFile(CLASS_J + ".class")));
+		k = new ClassInfo("K.class", new FileInputStream(TestUtil.getTestFile(CLASS_K + ".class")));
 	}
 	
 	@Before
@@ -225,22 +222,22 @@ public class ClassHierarchyTest implements ExampleProgram {
 		assertThat(ch.isFrozen(), is(true));
 		try {
 			ch.registerClass(f);
-			fail();
+			Assert.fail();
 		} catch (FrozenHierarchyException e) {
 		}
 		try {
 			ch.registerInterfaces(CLASS_F, new ArrayList<String>());
-			fail();
+			Assert.fail();
 		} catch (FrozenHierarchyException e) {
 		}
 		try {
 			ch.registerSuperClass(CLASS_C, "java/lang/Object");
-			fail();
+			Assert.fail();
 		} catch (FrozenHierarchyException e) {
 		}
 		try {
 			ch.registerSubtype("pkg/NewChild", CLASS_C);
-			fail();
+			Assert.fail();
 		} catch (FrozenHierarchyException e) {
 		}
 	}

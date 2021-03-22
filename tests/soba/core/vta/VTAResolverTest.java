@@ -1,12 +1,10 @@
 package soba.core.vta;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -20,9 +18,6 @@ import soba.core.FieldInfo;
 import soba.core.JavaProgram;
 import soba.core.JavaProgramTest;
 import soba.core.MethodInfo;
-import soba.core.vta.IAnalysisTarget;
-import soba.core.vta.TypeSet;
-import soba.core.vta.VTAResolver;
 
 public class VTAResolverTest implements ExampleProgram {
 

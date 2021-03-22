@@ -10,13 +10,14 @@ import java.io.IOException;
 import org.junit.Test;
 
 import soba.core.ClassInfo;
+import soba.testdata.TestUtil;
 
 public class ClassInfoTest implements ExampleProgram {
 
 	@Test
 	public void testClassInfo01() throws Exception {
-		String fileName = "bin/" + CLASS_D + ".class";
-		ClassInfo c = new ClassInfo(fileName, new FileInputStream(fileName));
+		File f = TestUtil.getTestFile(CLASS_D + ".class");
+		ClassInfo c = new ClassInfo(f.getPath(), new FileInputStream(f));
 		
 		assertThat(c.getPackageName(), is("soba/testdata/inheritance1"));
 		assertThat(c.getClassName(), is(CLASS_D));
@@ -25,7 +26,7 @@ public class ClassInfoTest implements ExampleProgram {
 														 "soba/testdata/inheritance1/K"));
 		assertThat(c.getHash(), is(notNullValue()));
 		assertThat(c.getClassDirPath(), is("soba" + File.separator + "testdata" + File.separator + "inheritance1"));
-		assertThat(c.getClassFileName(), is(fileName));
+		assertThat(c.getClassFileName(), is(f.getPath()));
 		assertThat(c.getSourceFileName(), is("soba" + File.separator + "testdata" + File.separator + "inheritance1" + File.separator + "D.java"));
 		assertThat(c.getLabel(), is(nullValue()));
 		assertThat(c.isLibrary(), is(false));
@@ -46,8 +47,8 @@ public class ClassInfoTest implements ExampleProgram {
 	
 	@Test
 	public void testClassInfo02() throws Exception {
-		String fileName = "bin/" + CLASS_H + ".class";
-		ClassInfo c = new ClassInfo(fileName, new FileInputStream(fileName), "label");
+		File f = TestUtil.getTestFile(CLASS_H + ".class");
+		ClassInfo c = new ClassInfo(f.getPath(), new FileInputStream(f), "label");
 		
 		assertThat(c.getPackageName(), is("soba/testdata/inheritance2"));
 		assertThat(c.getClassName(), is(CLASS_H));
@@ -55,7 +56,7 @@ public class ClassInfoTest implements ExampleProgram {
 		assertThat(c.getInterfaces(), is(empty()));
 		assertThat(c.getHash(), is(notNullValue()));
 		assertThat(c.getClassDirPath(), is("soba" + File.separator + "testdata" + File.separator + "inheritance2"));
-		assertThat(c.getClassFileName(), is(fileName));
+		assertThat(c.getClassFileName(), is(f.getPath()));
 		assertThat(c.getSourceFileName(), is("soba" + File.separator + "testdata" + File.separator + "inheritance2" + File.separator + "H.java"));
 		assertThat(c.getLabel(), is("label"));
 		assertThat(c.isLibrary(), is(false));
@@ -76,8 +77,8 @@ public class ClassInfoTest implements ExampleProgram {
 	
 	@Test
 	public void testLibrary01() throws IOException {
-		String fileName = "bin/" + CLASS_H + ".class";
-		ClassInfo c = ClassInfo.createLibraryClass(fileName, new FileInputStream(fileName));
+		File f = TestUtil.getTestFile(CLASS_H + ".class");
+		ClassInfo c = ClassInfo.createLibraryClass(f.getPath(), new FileInputStream(f));
 		assertThat(c.isLibrary(), is(true));
 	}
 	
