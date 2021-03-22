@@ -43,16 +43,12 @@ public class ClasspathUtilTest {
 		IClassList[] results4 = ClasspathUtil.getClassList(fileList, null);
 		assertThat(results4, is(arrayWithSize(1)));
 		
-		String[] zipFile = new String[]{"lib/asm-debug-all-5.0.3.jar"};
-		IClassList[] results5 = ClasspathUtil.getClassList(zipFile);
-		assertThat(results5, is(arrayWithSize(1)));
-		
 		String[] classFile = new String[]{"bin/soba/testdata/DefUseTestData.class"};
 		IClassList[] results6 = ClasspathUtil.getClassList(classFile);
 		assertThat(results6, is(arrayWithSize(1)));
 		
 		String[] appFiles = new String[]{"bin/soba/testdata/DefUseTestData.class"};
-		String[] libFiles = new String[]{"lib/asm-debug-all-5.0.3.jar"};
+		String[] libFiles = new String[]{"bin/soba/testdata"};
 		IClassList[] results7 = ClasspathUtil.getClassList(appFiles, libFiles);
 		assertThat(results7, is(arrayWithSize(2)));
 		assertThat(results7[1].getLabel(), is(ClassInfo.LIBRARY_LABEL));

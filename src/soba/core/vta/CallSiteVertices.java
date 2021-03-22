@@ -5,12 +5,11 @@ package soba.core.vta;
 
 
 import gnu.trove.list.array.TIntArrayList;
-
-import java.util.ArrayList;
-
 import soba.core.method.CallSite;
 import soba.core.signature.MethodSignatureReader;
 import soba.core.signature.TypeConstants;
+
+import java.util.ArrayList;
 
 /**
  * An instance of MethodParameters represents 

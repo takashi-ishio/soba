@@ -19,6 +19,7 @@ import org.junit.Test;
 
 import soba.core.ClassHierarchy;
 import soba.core.ClassInfo;
+import soba.core.MethodInfo;
 import soba.core.ClassHierarchy.FrozenHierarchyException;
 import soba.core.method.FieldAccess;
 

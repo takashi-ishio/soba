@@ -59,30 +59,36 @@ public class ClasspathUtil {
 		List<String> classpath = new ArrayList<String>(1024);
 		
         String classPath = System.getProperty("java.class.path");
-        for (String path: classPath.split(PATH_SPLIT_REGEX)) {
-        	classpath.add(new File(path).getAbsolutePath());
+        if (classPath != null) {
+            for (String path: classPath.split(PATH_SPLIT_REGEX)) {
+            	classpath.add(new File(path).getAbsolutePath());
+            }
         }
         
         String bootClassPath = System.getProperty("sun.boot.class.path");
-        for (String path: bootClassPath.split(PATH_SPLIT_REGEX)) {
-        	classpath.add(new File(path).getAbsolutePath());
+        if (bootClassPath != null) {
+            for (String path: bootClassPath.split(PATH_SPLIT_REGEX)) {
+            	classpath.add(new File(path).getAbsolutePath());
+            }
         }
         
         String extDirs = System.getProperty("java.ext.dirs");
-        for (String extDirPath: extDirs.split(PATH_SPLIT_REGEX)) {
-        	File extDir = new File(extDirPath);
-        	if (extDir.isDirectory() && extDir.canRead()) {
-        		File[] extFiles = extDir.listFiles(new FileFilter() {
-					@Override
-					public boolean accept(File pathname) {
-						String lowerFilename = pathname.getAbsolutePath();
-						return lowerFilename.endsWith(".jar") || lowerFilename.endsWith(".zip");
-					}
-				});
-        		for (File extFile: extFiles) {
-        			classpath.add(extFile.getAbsolutePath());
-        		}
-        	}
+        if (extDirs != null) {
+            for (String extDirPath: extDirs.split(PATH_SPLIT_REGEX)) {
+            	File extDir = new File(extDirPath);
+            	if (extDir.isDirectory() && extDir.canRead()) {
+            		File[] extFiles = extDir.listFiles(new FileFilter() {
+    					@Override
+    					public boolean accept(File pathname) {
+    						String lowerFilename = pathname.getAbsolutePath();
+    						return lowerFilename.endsWith(".jar") || lowerFilename.endsWith(".zip");
+    					}
+    				});
+            		for (File extFile: extFiles) {
+            			classpath.add(extFile.getAbsolutePath());
+            		}
+            	}
+            }
         }
 		return classpath;
 	}

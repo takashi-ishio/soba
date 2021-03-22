@@ -1,12 +1,11 @@
 package soba.core.vta;
 
 import gnu.trove.list.array.TIntArrayList;
-
-import java.util.ArrayList;
-
 import soba.core.MethodInfo;
 import soba.core.method.LocalVariables;
 import soba.core.signature.TypeConstants;
+
+import java.util.ArrayList;
 
 public class MethodVertices {
 	

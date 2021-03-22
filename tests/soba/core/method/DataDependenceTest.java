@@ -11,6 +11,7 @@ import org.junit.Test;
 import soba.core.JavaProgram;
 import soba.core.JavaProgramTest;
 import soba.core.MethodInfo;
+import soba.core.method.DataDependence;
 import soba.core.method.DataFlowEdge;
 import soba.util.UtilForAssertThat;
 import soba.util.graph.DirectedGraph;

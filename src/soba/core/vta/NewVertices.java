@@ -1,6 +1,7 @@
 package soba.core.vta;
 
 import gnu.trove.list.array.TIntArrayList;
+import soba.core.signature.TypeResolver;
 
 import java.util.ArrayList;
 
@@ -12,8 +13,6 @@ import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.InsnList;
 import org.objectweb.asm.tree.MultiANewArrayInsnNode;
 import org.objectweb.asm.tree.TypeInsnNode;
-
-import soba.core.signature.TypeResolver;
 
 public class NewVertices {
 

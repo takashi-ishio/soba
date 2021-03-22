@@ -5,6 +5,8 @@ import static org.hamcrest.Matchers.*;
 
 import org.junit.Test;
 
+import soba.core.signature.TypeResolver;
+
 public class TypeResolverTest {
 
 	@Test
