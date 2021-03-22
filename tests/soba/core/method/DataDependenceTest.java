@@ -131,22 +131,26 @@ public class DataDependenceTest {
 
 		List<DataFlowEdge> edges = dd.getEdges();
 		assertThat(edges, hasSize(17));
+		
+		/* TODO This hard-coding assumes the behavior of Java compilers.  
+ 		   This should be replaced with data-flow checking using variable names */
 		assertThat(containsEdge(edges, 2, 3), is(true));
 		assertThat(containsEdge(edges, 3, 6), is(true));
 		assertThat(containsEdge(edges, 6, 7), is(true));
 		assertThat(containsEdge(edges, 10, 11), is(true));
-		//assertThat(containsEdge(edges, 18, 19), is(true));
-		//assertThat(containsEdge(edges, 19, 23), is(true));
-		//assertThat(containsEdge(edges, 22, 24), is(true));
-		//assertThat(containsEdge(edges, 23, 24), is(true));
-		//assertThat(containsEdge(edges, 27, 28), is(true));
-		//assertThat(containsEdge(edges, 11, 33), is(true));
-		//assertThat(containsEdge(edges, 28, 33), is(true));
-		//assertThat(containsEdge(edges, 32, 34), is(true));
-		//assertThat(containsEdge(edges, 11, 38), is(true));
-		//assertThat(containsEdge(edges, 28, 38), is(true));
-		//assertThat(containsEdge(edges, 37, 39), is(true));
-		//assertThat(containsEdge(edges, 38, 39), is(true));
+		assertThat(containsEdge(edges, 17, 18), is(true));
+		assertThat(containsEdge(edges, 18, 22), is(true));
+		assertThat(containsEdge(edges, 21, 23), is(true));
+		assertThat(containsEdge(edges, 22, 23), is(true));
+		assertThat(containsEdge(edges, 26, 27), is(true));
+		assertThat(containsEdge(edges, 11, 32), is(true));
+		assertThat(containsEdge(edges, 27, 32), is(true));
+		assertThat(containsEdge(edges, 31, 33), is(true));
+		assertThat(containsEdge(edges, 32, 33), is(true));
+		assertThat(containsEdge(edges, 11, 37), is(true));
+		assertThat(containsEdge(edges, 27, 37), is(true));
+		assertThat(containsEdge(edges, 36, 38), is(true));
+		assertThat(containsEdge(edges, 37, 38), is(true));
 	}
 	
 	@Test
